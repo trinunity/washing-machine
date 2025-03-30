@@ -1,54 +1,36 @@
-# Remotion video
+import { AbsoluteFill, Sequence, Video, staticFile } from "remotion";
+import { motion } from "framer-motion";
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.gif">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+export const WashingMachineVideo = () => {
+  return (
+    <AbsoluteFill className="bg-black flex items-center justify-center">
+      <div className="relative w-48 h-48 bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center">
+        {/* Display Screen */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="w-32 h-16 bg-gray-900 rounded-md flex items-center justify-center text-green-400 font-bold"
+        >
+          Ready
+        </motion.div>
 
-Welcome to your Remotion project!
-
-## Commands
-
-**Install Dependencies**
-
-```console
-npm install
-```
-
-**Start Preview**
-
-```console
-npm run dev
-```
-
-**Render video**
-
-```console
-npx remotion render
-```
-
-**Upgrade Remotion**
-
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+        {/* Suds and Water Animation */}
+        <Sequence from={30} durationInFrames={60}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="absolute top-10 w-32 h-16 bg-blue-400 opacity-70 rounded-md"
+          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            className="absolute top-10 w-32 h-16 bg-white opacity-50 rounded-md"
+          />
+        </Sequence>
+      </div>
+    </AbsoluteFill>
+  );
+};
